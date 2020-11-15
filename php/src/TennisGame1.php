@@ -51,28 +51,7 @@ class TennisGame1 implements TennisGame
                 $score = "Win for player2";
             }
         } else {
-            for ($i = 1; $i < 3; $i++) {
-                if ($i == 1) {
-                    $tempScore = $this->player1Score;
-                } else {
-                    $score .= "-";
-                    $tempScore = $this->player2Score;
-                }
-                switch ($tempScore) {
-                    case 0:
-                        $score .= "Love";
-                        break;
-                    case 1:
-                        $score .= "Fifteen";
-                        break;
-                    case 2:
-                        $score .= "Thirty";
-                        break;
-                    case 3:
-                        $score .= "Forty";
-                        break;
-                }
-            }
+            $score = self::SCORES[$this->player1Score] . "-" . self::SCORES[$this->player2Score];
         }
         return $score;
     }
